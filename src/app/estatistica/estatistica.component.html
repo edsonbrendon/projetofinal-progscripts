@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<BR>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <form #formulario="ngForm" class="jumbotron">
+      <!-- Titulo da Pagina-->
+      <div>
+        <h2 style="font-size:18px; color:#1160BF"> <mat-icon>insert_chart</mat-icon> <b> Gerador de gráficos </b> </h2>
+        <mat-divider></mat-divider> 
+      </div>
+      <!-- Titulo do Grafico-->
+      <div>
+        <BR>
+        <p>Título do Gráfico:</p>
+        <input  [(ngModel)]="grafico.titulo" name="titulo" class="form-control" required> <BR>
+      </div>
+      <!-- Tipo de Grefico -->
+      <div>
+        <p>Tema do Gráfico:</p>
+        <select style="width: 250px; height:30px; border:1px solid #ddd;" [(ngModel)]="grafico.tipo"  name="tipo" required>
+          <option value="bar">Bar</option>
+          <option value="line">Line</option>
+          <option value="radar">Radar</option>
+          <option value="polarArea">Polar Area</option>
+          <option value="pie">Pie</option>
+          <option value="doughnut">Doughnut</option>
+        </select>
+      </div> 
+      <BR> <mat-divider></mat-divider> <BR>
+      
+      <!-- Valores -->
+      <div>
+        <p style='color:#8C8C8C'>Sessões:</p>
+        <p>Quantidade de sessões:</p>
+        <input [(ngModel)]="grafico.sessao_qtd" class="form-control" name="sessao_qtd" required><BR>
+        
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <div>
+            <p>Nome da sessão {{i+1}}:</p>
+            <input [(ngModel)]="grafico.sessao_nome" class="form-control" name="sessao_nome" required>
+          </div>
+          <div>
+            <p>Valor da sessão {{i+1}}:</p>
+            <input [(ngModel)]="grafico.sessao_valor" class="form-control" name="sessao_valor" required> 
+          </div>
+        </div> <BR>
+        
+        <mat-divider></mat-divider> <BR>
+        
+        <div fxLayout="row" fxLayoutAlign="space-between center" >
+          <button [disabled]="!formulario.form.valid" mat-raised-button (click)="Inserir()" class="gerargrafico"> {{btn_grafico}} </button> 
+          <button (click)="Limpar()" class="delete" title="Limpar gráfico" type="button" mat-button><mat-icon>delete</mat-icon></button>
+        </div>
+      </div> 
+      </form>
+    </div>
+    <div class="col-sm">
+      <div style="display: block;">
+        <h2> <b> Titulo: </b> {{grafico.titulo}} </h2>
+        <canvas baseChart
+          [data]="pieChartData" 
+          [labels]="pieChartLabels" 
+          [chartType]="grafico.tipo"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+

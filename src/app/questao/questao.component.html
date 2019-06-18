@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron">
+  <div>
+    <a style="font-size:18px"> <mat-icon>assignment</mat-icon> <b> {{questionariotitulo}} </b> </a> <BR>
+    <a style="font-size:14px"> Quantidade atual de questões: {{(questoes | async)?.length}}</a> 
+  </div>
+</div>
+
+<div class="container">
+  <div fxLayoutAlign="end center" fxLayoutGap="40px">
+    <button mat-button (click)="CadastrarQuestoesAberta()" class="adicionarquestao"> <mat-icon>add_box</mat-icon> QUESTÃO ABERTA </button> 
+    <button mat-button (click)="CadastrarQuestoesFechada()" class="adicionarquestao"> <mat-icon>add_box</mat-icon> QUESTÃO FECHADA </button>
+</div>
+  <mat-divider></mat-divider>
+  <div class="Semquestao" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="40px" *ngIf="(questoes | async)?.length==0"> 
+    <div>
+      <mat-icon style="font-size:60px">not_interested</mat-icon>
+    </div>
+    <div>
+     <a> VOCÊ NÃO POSSUI NENHUMA QUESTÃO CADASTRADA NESTE QUESTIONÁRIO </a>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="10px" disabled>
+    <div class="container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+      <div class="component__container" *ngFor="let questao of  questoes | async; let i = index">
+        <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+          <div style="color:#1160BF"> <b> QUESTÃO {{i+1}} </b> </div>
+          <div>
+            <button title="Editar Questão" class="botoes" type="button" mat-button (click)="edit(questao, questao.key, questao.alternativaA)"> <mat-icon>settings</mat-icon> </button>
+            <button title="Deletar Questão" class="botoes" type="button" mat-button (click)="DeletarQuestao(questao.key)"><mat-icon >delete</mat-icon> </button>
+          </div>
+        </mat-card-actions>
+        <div fxLayout="column">
+          <h4> <b> Enunciado: </b> {{questao.enunciado}} </h4>
+          <!-- <mat-card-subtitle> Chave da questão: {{questao.key}} </mat-card-subtitle> -->
+          <a *ngIf="questao.alternativaA!=null"> Alternativa A: {{questao.alternativaA}} </a>
+          <a *ngIf="questao.alternativaB!=null"> Alternativa B: {{questao.alternativaB}} </a>
+          <a *ngIf="questao.alternativaC!=null"> Alternativa C: {{questao.alternativaC}} </a>
+          <a *ngIf="questao.alternativaD!=null"> Alternativa D: {{questao.alternativaD}} </a> <BR>
+          <a *ngIf="questao.alternativacorreta!=null"> Alternativa Correta: {{questao.alternativacorreta}} </a> <BR>
+          <mat-divider></mat-divider> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<BR>
+
+

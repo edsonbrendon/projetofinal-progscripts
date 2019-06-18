@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron">
+  <mat-icon style="font-size:60px">account_circle</mat-icon> 
+  <h2>{{user?.displayName}}</h2>
+  <a>{{user?.email}}</a>
+  <!-- <a>UID: {{user?.uid}}</a> --><BR>
+  <a class="mat-small">Email 
+    <span [ngStyle]="{'color': user?.emailVerified ? 'green' : 'red'}">
+      {{user?.emailVerified ? 'verificado' : 'não verificado'}}
+    </span>
+  </a>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+  <div class="container">
+    <div *ngIf="authenticated">
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of menu">
+          <a routerLink="/login" [queryParams]="{ mode: item.mode }">
+            {{item.caption}}
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div>
+  <div class="container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+    <form #formulario="ngForm">
+      <h3 class='titulo'> <b> <mat-icon>add_box</mat-icon> {{ tituloaberto }}: </b> </h3>
+      <mat-divider></mat-divider>
+      <div class="form-group mt-4">
+        <label> <b> Enunciado: </b> </label>
+        <input [(ngModel)]="questaoaberta.enunciado" class="form-control" name="enunciado" required>
+      </div> <BR>
+      <mat-divider></mat-divider> <BR>
+      <div  fxLayoutAlign="end" fxLayoutGap="10px">
+        <button [disabled]="!formulario.form.valid" (click)="salvarQuestaoAberta()" class="adicionar" type="submit" mat-raised-button> {{ addButton }} </button>
+      </div>
+    </form>
+  </div>
+</div>

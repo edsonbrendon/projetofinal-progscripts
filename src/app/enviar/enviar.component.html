@@ -1,0 +1,26 @@
+<div class="custom-dialog">
+  <h2 class="titulo"> <mat-icon>email</mat-icon> <b> Enviar questionário por E-mail </b> </h2>
+  <mat-divider></mat-divider> <BR>
+  <form id="myform" onsubmit="emailjs.sendForm('default_service', 'template_XH30v9tG', this); return false;" method="post">
+    <label>Insira o nome do Destinatário:</label>
+    <input type="text" name="to_name" />
+    <label>Insira o endereço de E-mail do Destinatário:</label>
+    <input type="text" name="reply_to" placeholder="exemplo@exemplo.com" />
+    <label>Remetente:</label>
+    <input [(ngModel)]="usuarionome" type="text" name="from_name"/>
+    <label>Link do Questionário:</label>
+    <input style="color: #666; background:#DAE0D3;" [(ngModel)]="url" type="text" name="message_html" readonly/> 
+    <BR>
+    <mat-divider></mat-divider>
+    <BR>
+    <div fxLayoutAlign="end">
+      <button mat-button mat-raised-button> Enviar </button>
+    </div>
+  </form>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("user_nO7AejhVc2bvGX3hat5nY");
+    })();
+  </script>
+</div> 

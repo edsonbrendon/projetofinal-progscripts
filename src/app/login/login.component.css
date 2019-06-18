@@ -1,0 +1,36 @@
+form {
+  width: 350px;
+}
+
+.btn {
+  margin-top: 10px;
+  min-height: 48px;
+  color: white;
+  background: #1160BF;
+  border: #1160BF;
+}
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  margin-top: 5%;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  max-width: 500px;
+  padding: 50px;
+}
+
+.providers{
+  font-size: 23px;
+}

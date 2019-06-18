@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<BR>
+<div class="jumbotron">
+  <p style="font-size:18px;color:#1160BF"> <mat-icon>library_books</mat-icon> <b> Minhas pesquisas</b> </p>
+  <p style="font-size:14px"> Quantidade atual: {{(questionarios | async)?.length}}</p>
+</div>
+<BR>
+<div>
+  <mat-divider></mat-divider>
+  <div class="component__grid">
+    <button mat-stroked-button style="color:#1160BF" (click)="AdicionarQuestionario()"> 
+      <p> <mat-icon style="font-size:35px;vertical-align: middle">library_add</mat-icon> </p>
+      <b>CADASTRAR PESQUISA</b>
+    </button>
+  <mat-card *ngFor="let questionario of  questionarios | async">
+    <mat-card-header>
+      <mat-card-title>{{questionario.titulo}}</mat-card-title> 
+      <mat-card-subtitle>Key: {{questionario.key}}</mat-card-subtitle>
+      <mat-card-subtitle>Data de Inicial: {{questionario.inicio}}</mat-card-subtitle>
+      <mat-card-subtitle>Data Final: {{questionario.fim}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+       <!--<button class="botoes" type="button" mat-button [routerLink]="['/responder', usuariokey, questionario.key ]"><b>Responder</b></button> -->
+      <mat-divider></mat-divider>
+      <div  fxLayout="row" fxLayoutAlign="space-around center" >
+        <th><button  title="Editar Questionário" class="botoes" type="button" mat-button (click)="edit(questionario, questionario.key)"> <mat-icon>settings</mat-icon> </button>  </th>
+        <th><button  title="Deletar Questionário" class="botoes" type="button" mat-button (click)="DeletarQuestionario(questionario.key)"><mat-icon>delete</mat-icon> </button> </th>
+        <th><button  title="Enviar Questionário por E-mail" class="botoes" type="button" mat-button (click)="openModal(questionario.key)"><mat-icon>email</mat-icon></button> </th>
+        <th><button  title="Questões" class="botoes" type="button" mat-button (click)="AdicionarQuestao(questionario.key, questionario.titulo)"><mat-icon>assignment</mat-icon></button> </th>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+    <mat-divider></mat-divider>
+</div>

@@ -1,0 +1,32 @@
+<div>
+  <div class="container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+    <form #formulariofechado="ngForm">
+      <h3 class='titulo'> <b> <mat-icon>add_box</mat-icon> {{ titulofechado }}: </b> </h3>
+      <mat-divider></mat-divider>
+      <div class="form-group mt-4" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="5px">
+        <label> <b> Enunciado: </b> </label>
+        <input [(ngModel)]="questaofechada.enunciado" class="form-control" name="enunciado" required>
+        <label> <b> Alternativa A </b> </label>
+        <input [(ngModel)]="questaofechada.alternativaA" class="form-control" name="alternativaA" required>
+        <label> <b>  Alternativa B </b> </label>
+        <input [(ngModel)]="questaofechada.alternativaB" class="form-control" name="alternativaB" required>
+        <label> <b> Alternativa C </b> </label>
+        <input [(ngModel)]="questaofechada.alternativaC" class="form-control" name="alternativaC" required>
+        <label> <b> Alternativa D </b> </label>
+        <input [(ngModel)]="questaofechada.alternativaD" class="form-control" name="alternativaD" required>
+        <BR>
+        <a> <b> Alternativa Correta (Se houver): </b> </a>
+        <select style="width: 250px; height:30px; border:1px solid #ddd;" [(ngModel)]="questaofechada.alternativacorreta"  name="alternativacorreta">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select> <BR>
+      </div>
+      <mat-divider></mat-divider> <BR>
+      <div fxLayoutAlign="end" fxLayoutGap="10px">
+        <button [disabled]="!formulariofechado.form.valid" (click)="salvarQuestaoFechada()" class="adicionar" type="submit"  mat-raised-button> {{ addButton }} </button>
+      </div>
+    </form>
+  </div>
+</div>

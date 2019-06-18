@@ -1,0 +1,17 @@
+@import './theme';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Add application styles & imports to this file! */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+body {
+    background:#F2F2F2;
+}

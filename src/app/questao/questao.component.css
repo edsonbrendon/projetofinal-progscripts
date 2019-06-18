@@ -1,0 +1,24 @@
+.container{
+  margin-top: 2%;
+}
+
+.titulo{
+  color: #343A40;
+}
+
+.botoes{
+  color: #343A40;
+}
+
+.adicionarquestao{
+  color: #1160BF;
+  font-weight: bold;
+}
+
+.Semquestao{
+  padding: 90px;
+  color: #CFCFCF;
+  font-weight: bold;
+  font-size:20px;
+  text-align: center;
+}

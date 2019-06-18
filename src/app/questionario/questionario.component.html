@@ -1,0 +1,36 @@
+<div>
+  <form #formulario="ngForm">
+    <h2 class="titulo"> <mat-icon>library_books</mat-icon> <b> {{ service.titulo }} </b> </h2>
+      <mat-divider></mat-divider>
+      <div class="form-group mt-4">
+        <label>Título:</label>
+        <input [(ngModel)]="questionario.titulo" class="form-control" name="titulo" maxlength="20" required>
+      </div>
+      <div class="form-group mt-4">
+        <label>Data de início:</label>
+        <input [(ngModel)]="questionario.inicio" class="form-control" name="inicio"   placeholder="dd/mm/aaaa" required>
+      </div>
+      <div class="form-group mt-4">
+        <label>Data final:</label>
+        <input [(ngModel)]="questionario.fim" class="form-control" name="fim"  placeholder="dd/mm/aaaa" required>
+      </div>
+      <BR>
+      <mat-divider></mat-divider>
+      <BR>
+      <div fxLayoutAlign="end">
+        <button [disabled]="!formulario.form.valid" (click)="salvarQuestionario()" class="adicionar" type="submit"  mat-raised-button>{{ service.addButton }}</button>
+      </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
